@@ -1,0 +1,94 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Contenedor Base (Mobile First) */
+.bento-container {
+    display: grid;
+    gap: 15px;
+    max-width: 1100px;
+    width: 100%;
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+}
+
+/* Estilos de las tarjetas */
+.card {
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+/* Colores */
+.purple { background-color: #7651dc; color: white; }
+.light-purple { background-color: #e9dffc; color: black; }
+.yellow { background-color: #ffcb6b; color: black; }
+.white { background-color: white; border: 1px solid #eee; }
+.beige { background-color: #f9eee1; color: black; }
+
+/* Ajustes específicos */
+.hero { text-align: center; }
+.hero h1 span { color: #ffcb6b; }
+
+.btn-create {
+    background: #ffcb6b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: fit-content;
+}
+
+/* --- MEDIA QUERY PARA ESCRITORIO (Desktop) --- */
+@media (min-width: 900px) {
+    .bento-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        /* Definimos el mapa visual de la segunda imagen */
+        grid-template-areas: 
+            "create hero hero best-time"
+            "create accounts schedule best-time"
+            "ai-write audience growth growth"
+            "ai-write audience growth growth";
+    }
+
+    /* Asignación de áreas */
+    .hero      { grid-area: hero; }
+    .create    { grid-area: create; }
+    .best-time { grid-area: best-time; }
+    .accounts  { grid-area: accounts; }
+    .schedule  { grid-area: schedule; }
+    .ai-write  { grid-area: ai-write; }
+    .audience  { grid-area: audience; }
+    .growth    { grid-area: growth; flex-direction: row; align-items: center; gap: 20px;}
+
+    .card h2 { font-size: 1.2rem; }
+}
+
+/* Simulación de gráficos internos (opcional para visualización) */
+.chart-mockup, .calendar-mockup, .chat-mockup {
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+}
